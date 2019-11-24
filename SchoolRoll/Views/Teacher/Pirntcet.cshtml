@@ -1,0 +1,53 @@
+﻿@page
+@model SchoolRoll.Views.Teacher.CETModel
+@{
+    var lists = ViewBag.lists as List<Student>;
+    Layout = "_TeaLayout";
+}
+<section class="panel">
+    <header class="panel-heading">
+        四六级信息查询
+    </header>
+    <table class="table">
+        <thead>
+            <tr>
+                <form action='@Url.Action("Mycet","Teacher")' method="post">
+                    <th>搜索</th>
+                    <th>
+                        <input type="text" name="Sno" value="" placeholder="请输入学生学号" />
+                    </th>
+                    <th>
+                        <input type="submit" class="btn btn-primary" value="查看" />
+                    </th>
+                </form>
+            </tr>
+            <tr>
+                <th>序号</th>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>专业</th>
+                <th>班级</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < lists.Count(); i++)
+            {
+                <tr>
+                    <td>@i</td>
+                    <td>@lists[i].Sno</td>
+                    <td>@lists[i].Sname</td>
+                    <td>@lists[i].Schoolroll.Major</td>
+                    <td>@lists[i].Schoolroll.Class</td>
+                    <form action="@Url.Action("Mycet","Teacher")" method="post">
+                        <td>
+                            <input type="hidden" value=@lists[i].Sno name="Sno" />
+                            <input type="submit" class="btn btn-primary" value="查看" />
+
+                        </td>
+                    </form>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>

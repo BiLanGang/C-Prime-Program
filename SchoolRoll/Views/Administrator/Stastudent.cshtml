@@ -1,0 +1,41 @@
+﻿@page
+@model SchoolRoll.Views.Administrator.StastudentModel
+@{
+    var students = ViewBag.students as List<List<Student>>;
+    Layout = "_AdmLayout";
+}
+<section class="panel">
+    <header class="panel-heading">
+        全部课程信息
+    </header>
+
+    <table class="table">
+        <thead>           
+            <tr>
+                <th>序号</th>
+                <th>学院名称</th>
+                <th>学院人数</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < students.Count(); i++)
+            {
+                <tr>
+                    <td>@i</td>
+                    <td>@students[i][0].Schoolroll.Department</td>
+                    <td>@students[i].Count()</td>                   
+                    <form action='@Url.Action("ShowDep","Administrator")' method="post">
+                        <td>
+                            <input type="text" name="Depname" value=@students[i][0].Schoolroll.Department style="display:none" />
+                            <input type="submit" class="btn btn-primary" value="查看" />
+
+                        </td>
+                    </form>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</section>
+

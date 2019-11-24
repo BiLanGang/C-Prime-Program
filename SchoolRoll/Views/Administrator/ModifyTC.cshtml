@@ -1,0 +1,53 @@
+﻿@page
+@model SchoolRoll.Views.Administrator.ModifyTCModel
+@{
+    Layout = "_AdmLayout";
+    var teachers = ViewBag.teachers as List<Teacher>;
+    var courses = ViewBag.courses as List<List<Course>>;
+}
+<section class="panel">
+    <header class="panel-heading">
+        全部授课信息
+    </header>
+    <table class="table">
+        <thead>
+            <tr>
+                <form action='@Url.Action("ShowTC","Administrator")' method="post">
+                    <th>搜索</th>
+                    <th>
+                        <input type="text" name="Teacher_id" value="" placeholder="请输入教师职工号" />
+                    </th>
+                    <th>
+                        <input type="submit" class="btn btn-primary" value="查看" />
+                    </th>
+                </form>
+            </tr>
+            <tr>
+                <th>教师职工号</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>教授课程数量</th>
+                <th>操作</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < teachers.Count(); i++)
+            {
+                <tr>                
+                    <td>@teachers[i].Tno</td>
+                    <td>@teachers[i].Tname</td>
+                    <td>@teachers[i].Tsex</td>
+                    <td>@courses[i].Count()</td>                   
+                    <form action='@Url.Action("ShowTC","Administrator")' method="post">
+                        <td>
+                            <input type="text" name="Teacher_id" value=@teachers[i].Tno style="display:none" />
+                            <input type="submit" class="btn btn-primary" value="查看" />
+                        </td>
+                    </form>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</section>

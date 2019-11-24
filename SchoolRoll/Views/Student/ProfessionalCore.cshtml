@@ -1,0 +1,46 @@
+﻿@page
+@model SchoolRoll.Views.Student.ProfessionalCoreModel
+@{
+    var courses = ViewBag.courses as List<Course>;
+    Layout = "_StuLayout";
+}
+<section class="panel">
+    <header class="panel-heading">
+        专业方向课程
+    </header>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>课程编号</th>
+                <th>课程名称</th>
+                <th>课程学分</th>
+                <th>课程类别</th>
+                <th>课程学时</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < courses.Count(); i++)
+            {
+                <tr>
+                    <td>@i</td>
+                    <td>@courses[i].Cno</td>
+                    <td>@courses[i].Cname</td>
+                    <td>@courses[i].Credit</td>
+                    <td>@courses[i].Ctype</td>
+                    <td>@courses[i].Cperiod</td>
+                    <form action='@Url.Action("Insertcourse","Student")' method="post">
+                        <td>
+                            <input type="hidden" value=@courses[i].Cno name="Cno" />
+                            <input type="submit" class="btn btn-primary" value="选课" />
+
+                        </td>
+                    </form>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</section>
+
+

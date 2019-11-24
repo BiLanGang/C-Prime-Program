@@ -1,0 +1,59 @@
+﻿@page
+@{
+    var student = ViewBag.student as Student;
+    Layout = "_StuLayout";
+}
+
+<section class="panel">
+    <header class="panel-heading">
+        个人学籍信息
+    </header>
+    <div class="panel-body">
+        <div class="form-horizontal " action="#">
+            <!--date picker start-->
+
+            <div class="form-group">
+                <label class="control-label col-sm-4">学校名称</label>
+                <div class="col-sm-6">
+                    <p size="16" class="form-control">@student.Schoolroll.School</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4">院系</label>
+                <div class="col-sm-6">
+                    <p size="16" class="form-control">@student.Schoolroll.Department</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4">专业</label>
+                <div class="col-sm-6">
+                    <p size="16" class="form-control">@student.Schoolroll.Major</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4">班级</label>
+                <div class="col-sm-6">
+                    <p size="16" class="form-control">@student.Schoolroll.Class</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4">入学时间</label>
+                <div class="col-sm-6">
+                    <p size="16" class="form-control">@student.Schoolroll.Enter</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4">学生类别</label>
+                <div class="col-sm-6">
+                    <p size="16" class="form-control">@student.Schoolroll.Type</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4">学制时长</label>
+                <div class="col-sm-6">
+                    <p size="16" class="form-control">@student.Schoolroll.Length</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

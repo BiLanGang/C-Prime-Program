@@ -1,0 +1,56 @@
+﻿@page
+@model SchoolRoll.Views.Student.ShowcoursesModel
+@{
+    var courses = ViewBag.courses as List<Course>;
+    var scores = ViewBag.scores;
+    Layout = "_StuLayout";
+}
+<section class="panel">
+    <header class="panel-heading">
+        个人课程
+    </header>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>课程编号</th>
+                <th>课程名称</th>
+                <th>课程学分</th>
+                <th>课程类别</th>
+                <th>课程学时</th>
+                <th>备注</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < courses.Count(); i++)
+            {
+                <tr>
+                    <td>@i</td>
+                    <td>@courses[i].Cno</td>
+                    <td>@courses[i].Cname</td>
+                    <td>@courses[i].Credit</td>
+                    <td>@courses[i].Ctype</td>
+                    <td>@courses[i].Cperiod</td>
+                    @{ if (scores[i].Grade == null)
+                        {
+                     <form action='@Url.Action("Delcourse", "Student")' method="post">
+                        <td>
+                            <input type="hidden" value=@courses[i].Cno name="course_id" />
+                            <input type="submit" class="btn btn-primary" value="退课" />
+                        </td>
+                      </form>
+                        }
+                        else
+                        {
+                            <td>已修读</td>
+                        }
+                        }
+
+
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</section>
+

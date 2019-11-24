@@ -1,0 +1,52 @@
+﻿@page
+@model SchoolRoll.Views.Student.ShowscoresModel
+@{
+    var courses = ViewBag.courses as List<Course>;
+    var scores = ViewBag.scores as List<Score>;
+    var credit = ViewBag.credit as string;
+    Layout = "_StuLayout";
+}
+<section class="panel">
+    <header class="panel-heading">
+        个人课程
+    </header>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>课程编号</th>
+                <th>课程名称</th>
+                <th>课程学分</th>               
+                <th>课程成绩</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < courses.Count() + 1; i++)
+            {
+                if (i != courses.Count())
+                {
+                    <tr>
+                        <td>@i</td>
+                        <td>@courses[i].Cno</td>
+                        <td>@courses[i].Cname</td>
+                        <td>@courses[i].Credit</td>
+                        <td>@scores[i].Grade</td>
+                    </tr>
+                }
+                else
+                {
+                    <tr>
+
+                        <td>已获得学分</td>
+                        <td>@credit</td>
+                        <td>  </td>
+                        <td>  </td>
+                        <td>  </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</section>
+
+

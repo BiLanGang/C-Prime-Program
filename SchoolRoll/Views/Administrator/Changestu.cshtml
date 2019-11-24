@@ -1,0 +1,128 @@
+﻿@page
+@model SchoolRoll.Views.Administrator.ChangstuModel
+@{
+    Layout = "_AdmLayout";
+    var student = ViewBag.student as Student;
+}
+<section class="panel">
+    <header class="panel-heading">
+        学生详细信息
+    </header>
+    <div class="panel-body">
+        <div class="form-horizontal " action="#">
+            <form action='@Url.Action("Changestudent","Administrator")' method="post">
+                <div class="form-group">
+                    <label class="control-label col-sm-4">学号</label>
+                    <div class="col-sm-6">
+                        <p size="16" class="form-control">
+                           @student.Sno  
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">姓名</label>
+                    <div class="col-sm-6">
+                        <p size="16" class="form-control">
+                           @student.Sname
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">性别</label>
+                    <div class="col-sm-6">
+                        <p size="16" class="form-control">
+                            @student.Ssex
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">出生日期</label>
+                    <div class="col-sm-6">
+                        <p size="16" class="form-control">
+                            @student.Sbirthday
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">年龄</label>
+                    <div class="col-sm-6">
+                        <p size="16" class="form-control">
+                           @student.Sage
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">联系电话</label>
+                    <div class="col-sm-6">
+                        <p size="16" class="form-control">
+                            <input type="text" name="Sphone" value="@student.Sphone"  />
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">家庭住址</label>
+                    <div class="col-sm-6">
+                        <p size="16" class="form-control">
+                            <input type="text" name="Saddress" value="@student.Saddress" />
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">所属院系</label>
+                    <div class="col-sm-6">
+                        <p size="16" class="form-control">
+                            <input type="text" name="Schoolroll.Department" value="@student.Schoolroll.Department"  />
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">所属专业</label>
+                    <div class="col-sm-6">
+                        <p size="16" class="form-control">
+                            <input type="text" name="Schoolroll.Major" value="@student.Schoolroll.Major"  />
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">所属班级</label>
+                    <div class="col-sm-6">
+                        <p size="16" class="form-control">
+                            <input type="text" name="Schoolroll.Class" value="@student.Schoolroll.Class"  />
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">入学时间</label>
+                    <div class="col-sm-6">
+                        <p size="16" class="form-control">
+                            @student.Schoolroll.Enter
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">学生类别</label>
+                    <div class="col-sm-6">
+                        <p size="16" class="form-control">
+                            <input type="text" list="url_list" name="Schoolroll.Type" value="@student.Schoolroll.Type" />
+                            <datalist id="url_list">
+                                <option label="本科生" value="本科生" />
+                                <option label="研究生" value="研究生" />
+                            </datalist>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">学制时长</label>
+                    <div class="col-sm-6">
+                        <p size="16" class="form-control">
+                            <input type="text" name="Schoolroll.Length" value="@student.Schoolroll.Length"  />
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <input type="text" name="Sno" value=@student.Sno style="display:none" />
+                    <button type="submit" style="display:block;margin:0 auto" class="btn btn-primary">提交</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

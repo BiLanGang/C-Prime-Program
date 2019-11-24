@@ -1,0 +1,38 @@
+﻿@page
+@model SchoolRoll.Views.Teacher.MycerModel
+@{
+    var cers = ViewBag.cers as List<Certificate>;
+    Layout = "_TeaLayout";
+}
+<section class="panel">
+    <header class="panel-heading">
+        学生证书信息
+    </header>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>学号</th>
+                <th>证书编号</th>
+                <th>证书名称</th>
+                <th>发证日期</th>
+                <th>证书类别</th>
+                <th>发证单位</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < cers.Count(); i++)
+            {
+            <tr>
+                <td>@i</td>
+                <td>@cers[i].Sno</td>
+                <td>@cers[i].Cerno</td>
+                <td>@cers[i].Cername</td>
+                <td>@cers[i].Cerdate</td>
+                <td>@cers[i].Certype</td>
+                <td>@cers[i].Cercompany</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</section>

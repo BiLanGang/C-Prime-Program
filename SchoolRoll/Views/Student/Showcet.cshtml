@@ -1,0 +1,33 @@
+﻿@page
+@model SchoolRoll.Views.Student.ShowcetModel
+@{
+    var cets = ViewBag.cets as List<Cet>;
+    Layout = "_StuLayout";
+}
+<section class="panel">
+    <header class="panel-heading">
+        个人四六级信息
+    </header>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>学号</th>
+                <th>类别</th>
+                <th>成绩</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < cets.Count(); i++)
+            {
+                <tr>
+                    <td>@i</td>
+                    <td>@cets[i].Sno</td>
+                    <td>@cets[i].Etype</td>
+                    <td>@cets[i].Egade</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>

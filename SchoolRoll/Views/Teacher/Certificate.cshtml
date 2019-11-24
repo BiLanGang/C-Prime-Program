@@ -1,0 +1,69 @@
+﻿@page
+@model SchoolRoll.Views.Teacher.CertificateModel
+@{
+    Layout = "_TeaLayout";
+}
+<section class="panel">
+    <header class="panel-heading">
+        证书信息录入
+    </header>
+    <div class="panel-body">
+        <div class="form-horizontal " action="#">
+            <form action="@Url.Action("Insertcer","Teacher")" method="post">
+                <div class="form-group">
+                    <label class="control-label col-sm-4">学号</label>
+                    <div class="col-sm-6">
+                        <p size="16" class="form-control">
+                            <input type="text" name="Sno" value="" placeholder="请输入学号" />
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">证书编号</label>
+                    <div class="col-sm-6">
+                        <p size="16" class="form-control">
+                            <input type="text" name="Cerno" value="" placeholder="请输入证书编号" />
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">证书名称</label>
+                    <div class="col-sm-6">
+                        <p size="16" class="form-control">
+                            <input type="text" name="Cername" value="" placeholder="证书名称" />
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">发证日期</label>
+                    <div class="col-sm-6">
+                        <p size="16" class="form-control">
+                            <input type="text" name="Cerdate" value="" placeholder="格式（xx-xx-xx）" />
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">证书类别</label>
+                    <div class="col-sm-6">
+                        <p size="16" class="form-control">
+                            <input type="text" name="Certype" value="" placeholder="请输入类别" />
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">发证单位</label>
+                    <div class="col-sm-6">
+                        <p size="16" class="form-control">
+                            <input type="text" name="Cercompany" value="" placeholder="请输入单位名称" />
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <button type="submit" class="btn btn-primary" style="display:block;margin:0 auto">提交</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+

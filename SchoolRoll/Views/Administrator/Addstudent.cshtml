@@ -1,0 +1,129 @@
+﻿@page
+@model SchoolRoll.Views.Administrator.AddstudentModel
+@{
+    Layout = "_AdmLayout";
+}
+<section class="panel">
+    <header class="panel-heading">
+        添加学生
+    </header>
+    <div class="panel-body">
+        <div class="form-horizontal " action="#">
+            <form action='@Url.Action("Addstu","Administrator")' method="post">
+                <div class="form-group">
+                    <label class="control-label col-sm-4">学号</label>
+                    <div class="col-sm-6">
+                        <p size="16" class="form-control">
+                            <input type="text" name="Sno" value="" placeholder="请输入学号" />
+
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">姓名</label>
+                    <div class="col-sm-6">
+                        <p size="16" class="form-control">
+                            <input type="text" name="Sname" value="" placeholder="请输入姓名" />
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">性别</label>
+                    <div class="col-sm-6">
+                        <p size="16" class="form-control">
+                            <input type="text" name="Ssex" value="" placeholder="男/女" />
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">年龄</label>
+                    <div class="col-sm-6">
+                        <p size="16" class="form-control">
+                            <input type="text" name="Sage" value="" placeholder="请输入年龄" />
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">出生日期</label>
+                    <div class="col-sm-6">
+                        <p size="16" class="form-control">
+                            <input type="text" name="Sbirthday" value="" placeholder="格式xx-xx-xx" />
+                        </p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-4">联系电话</label>
+                    <div class="col-sm-6">
+                        <p size="16" class="form-control">
+                            <input type="text" name="Sphone" value="" placeholder="请输入联系电话" />
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">家庭住址</label>
+                    <div class="col-sm-6">
+                        <p size="16" class="form-control">
+                            <input type="text" name="Saddress" value="" placeholder="请输入家庭住址" />
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">所属院系</label>
+                    <div class="col-sm-6">
+                        <p size="16" class="form-control">
+                            <input type="text" name="Schoolroll.Department" value="" placeholder="请输入所属院系" />
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">所属专业</label>
+                    <div class="col-sm-6">
+                        <p size="16" class="form-control">
+                            <input type="text" name="Schoolroll.Major" value="" placeholder="请输入所属专业" />
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">所属班级</label>
+                    <div class="col-sm-6">
+                        <p size="16" class="form-control">
+                            <input type="text" name="Schoolroll.Class" value="" placeholder="请输入所属班级" />
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">入学时间</label>
+                    <div class="col-sm-6">
+                        <p size="16" class="form-control">
+                            <input type="text" name="Schoolroll.Enter" value="" placeholder="请输入入学时间" />
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">学生类别</label>
+                    <div class="col-sm-6">
+                        <p size="16" class="form-control">
+                            <input type="text" list="url_list" name="Schoolroll.Type" placeholder="请选择" />
+                            <datalist id="url_list">
+                                <option label="本科生" value="本科生" />
+                                <option label="研究生" value="研究生" />
+                            </datalist>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">学制时长</label>
+                    <div class="col-sm-6">
+                        <p size="16" class="form-control">
+                            <input type="text" name="Schoolroll.Length" value="" placeholder="请输入学制时长" />
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <button type="submit" style="display:block;margin:0 auto" class="btn btn-primary">添加</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+

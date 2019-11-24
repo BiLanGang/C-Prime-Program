@@ -1,0 +1,55 @@
+﻿@page
+@{
+    var teacher = ViewBag.teacher as Teacher;
+    Layout = "_TeaLayout";
+}
+<section class="panel">
+    <header class="panel-heading">
+        个人基本信息修改
+    </header>
+    <div class="panel-body">
+        <div class="form-horizontal " action="#">
+            <form action="@Url.Action("ChangeInfor","Teacher")" method="post">
+                <input type="text" name="Tno" value=@teacher.Tno style="display:none" />
+                <div class="form-group">
+                    <label class="control-label col-sm-4">姓名</label>
+                    <div class="col-sm-6">
+                        <p size="16" class="form-control">@teacher.Tname</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-4">性别</label>
+                    <div class="col-sm-6">
+                        <p size="16" class="form-control">@teacher.Tsex</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">出生日期</label>
+                    <div class="col-sm-6">
+                        <p size="16" class="form-control">@teacher.Tbirthday</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">年龄</label>
+                    <div class="col-sm-6">
+                        <p size="16" class="form-control">@teacher.Tage</p>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="control-label col-sm-4">联系电话</label>
+                    <div class="col-sm-6">
+                        <p size="16" class="form-control">
+                            <input type="text" name="Tphone" value=@teacher.Tphone />
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <button type="submit" class="btn btn-primary" style="display:block;margin:0 auto">提交</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

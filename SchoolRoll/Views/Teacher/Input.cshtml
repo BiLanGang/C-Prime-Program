@@ -1,0 +1,61 @@
+﻿@page
+@model SchoolRoll.Views.Teacher.InputModel
+@{
+    var courses = ViewBag.courseLists as List<Course>;
+    var scores = ViewBag.scoreLists as List<Score>;
+    var message = ViewBag.message as string;
+    Layout = "_TeaLayout";
+}
+
+<section class="panel">
+
+    <header class="panel-heading">
+        个人课程
+    </header>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>课程编号</th>
+                <th>课程名称</th>
+                <th>课程学分</th>
+                <th>课程成绩</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @for (int i = 0; i < courses.Count(); i++)
+            {
+                <tr>
+                    <td>@i</td>
+                    <td>@courses[i].Cno</td>
+                    <td>@courses[i].Cname</td>
+                    <td>@courses[i].Credit</td>
+                    <td>
+                        <form id="form" >
+                            <input type="text" name="stuSno" value="@scores[i].Sno" style="display:none" />
+                            <input type="text" name="stuCno" value="@scores[i].Cno" style="display:none" />
+                            <input type="text" name="stuGrade" value=""  id="score_id"/>
+                            <a href="javascript:void(0)" onclick="SubmitData(@scores[i].Cno,@scores[i].Sno)"  class="btn btn-primary" id="submitButton">提交</a>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>    
+    <script>
+        function SubmitData(code,code1) {
+            var score_id = $("#score_id").val();
+            $.post("Inputscore", { stuSno: code1, stuCno: code, stuGrade: score_id }, function (data) {
+                var obj = JSON.parse(data);
+                alert(obj.message);                
+            });
+        }       
+    </script>
+    <form action="@Url.Action("Showstuscore","Teacher")" method="post">
+        <input type="text" name="stu_id" value="@scores[0].Sno" style="display:none" />
+        <input type="submit" class="btn btn-primary" value="确定" style="display:block;margin:0 auto"/>
+    </form>
+</section>
+   

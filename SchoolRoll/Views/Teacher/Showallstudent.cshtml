@@ -1,0 +1,54 @@
+﻿@page
+@model SchoolRoll.Views.Teacher.ShowallshtudentModel
+@{
+    var students = ViewBag.students as List<Student>;
+    Layout = "_TeaLayout";
+}
+<section class="panel">
+    <header class="panel-heading">
+        学生成绩查询
+    </header>
+    <table class="table">
+        <thead>
+            <tr>
+                <form action="@Url.Action("Showstuscore","Teacher")" method="post">
+                    <th>搜索</th>
+                    <th>
+                        <input type="text" name="stu_id" value="" placeholder="请输入学生学号" />
+                    </th>
+                    <th>
+                        <input type="submit" class="btn btn-primary" value="选择" />
+                    </th>
+                </form>
+            </tr>
+            <tr>
+                <th>序号</th>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>专业</th>
+                <th>班级</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < students.Count(); i++)
+            {
+                <tr>
+                    <td>@i</td>
+                    <td>@students[i].Sno</td>
+                    <td>@students[i].Sname</td>
+                    <td>@students[i].Schoolroll.Major</td>
+                    <td>@students[i].Schoolroll.Class</td>
+                    <form action="@Url.Action("Showstuscore","Teacher")" method="post">
+                        <td>
+                            <input type="hidden" value=@students[i].Sno name="stu_id" />
+                            <input type="submit" class="btn btn-primary" value="选择" />
+
+                        </td>
+                    </form>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>
+

@@ -1,0 +1,123 @@
+﻿ <!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Start Bootstrap - SB Admin Version 2.0 Demo</title>
+
+    <!-- Core CSS - Include with every page -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Page-Level Plugin CSS - Dashboard -->
+    <link href="~/css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
+    <link href="~/css/plugins/timeline/timeline.css" rel="stylesheet">
+
+    <!-- SB Admin CSS - Include with every page -->
+    <link href="~/css/sb-admin.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href='@Url.Action("Index","Administrator")'>教务端</a>
+            </div>
+            <!-- /.navbar-header -->
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default navbar-static-side" role="navigation">
+                <div class="sidebar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li>
+                            <a href="#"><i class="fa fa-dashboard fa-fw"></i> 个人信息管理<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li><a class="" href="@Url.Action("ChangePassword","Administrator")">修改个人密码</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i> 学生学籍变动<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li><a href='@Url.Action("Addstudent","Administrator")' class="">新增学生</a></li>
+                                <li><a href='@Url.Action("Manstudent","Administrator")' class="">管理学生</a></li>
+                                <li><a href='@Url.Action("Stastudent","Administrator")' class="">信息统计</a></li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i> 教师信息变动<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li><a href='@Url.Action("Addteacher","Administrator")' class="">新增教师</a></li>
+                                <li><a href='@Url.Action("Delteacher","Administrator")' class="">查看教师</a></li>
+                                <li><a href='@Url.Action("ModifyTC","Administrator")' class="">教师授课变动</a></li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i> 课程信息变动<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li><a class="" href="@Url.Action("Addcourse","Administrator")">增加课程</a></li>
+                                <li><a class="" href="@Url.Action("Delcourse","Administrator")">查看课程</a></li>
+                               
+                            </ul>
+
+
+                            <!-- /.nav-second-level -->
+                        </li>
+
+                        <li>
+                            <a href="@Url.Action("Index","Home")"><i class="fa fa-edit fa-fw"></i> 退出</a>
+                        </li>
+                    </ul>
+                    <!-- /#side-menu -->
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper">
+            @*<div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Dashboard</h1>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>*@
+            <!-- /.row -->
+            @RenderBody()
+            <!-- /.row -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+    <!-- Core Scripts - Include with every page -->
+    <script src="~/js/jquery-1.10.2.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+
+    <!-- Page-Level Plugin Scripts - Dashboard -->
+    <script src="~/js/plugins/morris/raphael-2.1.0.min.js"></script>
+    <script src="~/js/plugins/morris/morris.js"></script>
+
+    <!-- SB Admin Scripts - Include with every page -->
+    <script src="~/js/sb-admin.js"></script>
+
+    <!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
+    <script src="~/js/demo/dashboard-demo.js"></script>
+
+</body>
+
+</html>
